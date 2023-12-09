@@ -28,7 +28,7 @@ Also, existing workspaces are re-assigned to the monitors they are intendet to b
 
 # Usage
 1. Create a config. An example config is provided in the repository:
-   ```
+    ```
    [
     {
     "description": "AU Optronics 0x623D",
@@ -44,48 +44,48 @@ Also, existing workspaces are re-assigned to the monitors they are intendet to b
       "9"
     ],
     "workspace_default": "1"
-  },
-  {
-    "description": "Dell Inc. DELL UP2516D 3JV405AG097L",
-    "workspaces": [
-      "external_1",
-      "external_2",
-      "external_3",
-      "external_4",
-      "external_5",
-      "external_6",
-      "external_7",
-      "external_8",
-      "external_9"
-    ],
-    "workspace_default": "external_1"
-  },
+    },
     {
-    "description": "Lenovo Group Limited T24i-30 VTQ05862",
-    "workspaces": [
-            "external_1",
-            "external_2",
-            "external_3",
-            "external_4"
-    ],
-    "workspace_default": "external_1"
-  },
-    {
-    "description": "Samsung Electric Company SAMSUNG 0x00000001",
-    "workspaces": [
-      "external_5",
-      "external_6",
-      "external_7",
-      "external_8"
-    ],
-    "workspace_default": "external_5"
-  }
-]
-```
+      "description": "Dell Inc. DELL UP2516D 3JV405AG097L",
+      "workspaces": [
+        "external_1",
+        "external_2",
+        "external_3",
+        "external_4",
+        "external_5",
+        "external_6",
+        "external_7",
+        "external_8",
+        "external_9"
+      ],
+      "workspace_default": "external_1"
+    },
+      {
+      "description": "Lenovo Group Limited T24i-30 VTQ05862",
+      "workspaces": [
+              "external_1",
+              "external_2",
+              "external_3",
+              "external_4"
+      ],
+      "workspace_default": "external_1"
+    },
+      {
+      "description": "Samsung Electric Company SAMSUNG 0x00000001",
+      "workspaces": [
+        "external_5",
+        "external_6",
+        "external_7",
+        "external_8"
+      ],
+      "workspace_default": "external_5"
+    }
+  ]
+    ```
 2. Execute the script `change_monitor.py` with the path to the config as argument when starting hyprland
    and execute-once the listener with the path to the config as argument like this, with {path_to_repo}
    being the path to the repository
    ``` 
-exec-once = {path_to_repo}/monitors.sh {path_to_config}
-exec = python {path_to_repo}/change_monitor.py {path_to_config}
-```
+    exec-once = {path_to_repo}/monitors.sh {path_to_config}
+    exec = python {path_to_repo}/change_monitor.py {path_to_config}
+   ```
