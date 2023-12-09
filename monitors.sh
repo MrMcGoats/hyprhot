@@ -1,8 +1,12 @@
 #!/bin/sh
+
+# Assign the first command-line argument to a variable
+filePath=$1
+
 handle() {
   case $1 in
-    monitoradded*) echo $1; python change_monitor.py $CONFIG_MONITOR_SWITCHER_HYPRLAND;;
-    monitorremoved*) echo $1; python change_monitor.py $CONFIG_MONITOR_SWITCHER_HYPRLAND;;
+    monitoradded*) echo $1; python change_monitor.py $filePath;;
+    monitorremoved*) echo $1; python change_monitor.py $filePath;;
   esac
 }
 
