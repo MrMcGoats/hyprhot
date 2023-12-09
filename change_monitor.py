@@ -31,8 +31,13 @@ def parse_config(path_config):
 
 def move_workspace_to_monitor(workspace, monitor):
     os.system(
-        f'hyprctl dispatch moveworkspacetomonitor {workspace} {monitor["name"]}'
+        f'hyprctl dispatch moveworkspacetomonitor name:{workspace} {monitor["name"]}'
     )
+
+def show_workspace_on_monitor(workspace, monitor):
+    os.system(f'hyprctl dispatch focusmonitor {monitor["name"]}')
+    os.system(f'hyprctl dispatch workspace name:{workspace}')
+
 
 
 parser = argparse.ArgumentParser(
@@ -89,4 +94,4 @@ for monitor in monitors:
                     if monitor_current['activeWorkspace']['name'] not in rule.workspaces:
                         print(
                             f'Monitor {monitor_current["description"]} has invalid workspace {monitor_current["activeWorkspace"]["name"]}. switching to default {rule.workspace_default}')
-                        move_workspace_to_monitor(rule.workspace_default, monitor_current)
+                        show_workspace_on_monitor(rule.workspace_default, monitor_current)
