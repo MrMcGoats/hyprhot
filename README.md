@@ -80,7 +80,7 @@ Also, existing workspaces are re-assigned to the monitors they are intendet to b
       ],
       "workspace_default": "external_5"
     }
-  ]
+    ]
     ```
 2. Execute the script `change_monitor.py` with the path to the config as argument when starting hyprland
    and execute-once the listener with the path to the config as argument like this, with {path_to_repo}
