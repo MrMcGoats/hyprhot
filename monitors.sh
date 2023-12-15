@@ -5,7 +5,7 @@ filePath=$1
 
 if [ $# -eq 0 ]
   then
-    echo "Path to config.json must be provided as argument."
+    echo "Ansolute path to config.json must be provided as argument."
     exit 2
 fi
 
