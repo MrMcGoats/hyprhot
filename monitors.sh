@@ -11,6 +11,7 @@ fi
 
 
 handle() {
+  cd "$(dirname "$0")"
   case $1 in
     monitoradded*) echo $1; python change_monitor.py $filePath;;
     monitorremoved*) echo $1; python change_monitor.py $filePath;;
