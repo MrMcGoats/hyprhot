@@ -3,7 +3,10 @@ import os
 from dataclasses import dataclass
 import json
 import argparse
+import logging
 
+logger = logging.getLogger('Hyprhot')
+logger.setLevel(logging.INFO)
 
 @dataclass
 class MonitorInfo:
@@ -81,7 +84,7 @@ for monitor in monitors:
             for workspace_existing in workspaces_existing:
                 if workspace_existing['name'] in rule.workspaces:
                     if workspace_existing['monitor'] != monitor['name']:
-                        print(
+                        logger.info(
                             f'Workspace {workspace_existing["name"]} should be assigned to monitor {monitor["name"]}, '
                             f'but is assigned to monitor {workspace_existing["monitor"]}. Reassigning.')
                     move_workspace_to_monitor(workspace_existing['name'], monitor)
@@ -92,6 +95,6 @@ for monitor in monitors:
             for monitor_current in monitors_current:
                 if rule.description in monitor_current['description']:
                     if monitor_current['activeWorkspace']['name'] not in rule.workspaces:
-                        print(
+                        logger.info(
                             f'Monitor {monitor_current["description"]} has invalid workspace {monitor_current["activeWorkspace"]["name"]}. switching to default {rule.workspace_default}')
                         show_workspace_on_monitor(rule.workspace_default, monitor_current)
