@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Assign the first command-line argument to a variable
 filePath=$1
