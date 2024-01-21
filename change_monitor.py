@@ -8,6 +8,7 @@ import logging
 logger = logging.getLogger('Hyprhot')
 logger.setLevel(logging.INFO)
 
+
 @dataclass
 class MonitorInfo:
     description: str
@@ -37,10 +38,10 @@ def move_workspace_to_monitor(workspace, monitor):
         f'hyprctl dispatch moveworkspacetomonitor name:{workspace} {monitor["name"]}'
     )
 
+
 def show_workspace_on_monitor(workspace, monitor):
     os.system(f'hyprctl dispatch focusmonitor {monitor["name"]}')
     os.system(f'hyprctl dispatch workspace name:{workspace}')
-
 
 
 parser = argparse.ArgumentParser(
@@ -51,15 +52,14 @@ parser = argparse.ArgumentParser(
                 'Also ensure that workspaces are moved to their assigned monitor in case they'
                 'were assigned to the wrong monitor before, which is common when hot-plugging.'
 )
-parser.add_argument(
-    'path_config',
-    type=str,
-    help='Path to a .json config file. '
-         'Content is a list of dicts. Each dict represents the configuration of a monitor and has the following keys:\n'
-         '- description: monitor description that can be used in a hyprland workspace rule to identify the monitor \n'
-         '- workspaces: list of workspace names (strings) the monitor is assigned to\n'
-         '- workspace_default: string with the monitors default workspace name from workspaces.'
-)
+parser.add_argument('path_config',
+                    type=str,
+                    help='Path to a .json config file. '
+                         'Content is a list of dicts. Each dict represents the configuration of a monitor and has the following keys:\n'
+                         '- description: monitor description that can be used in a hyprland workspace rule to identify the monitor \n'
+                         '- workspaces: list of workspace names (strings) the monitor is assigned to\n'
+                         '- workspace_default: string with the monitors default workspace name from workspaces.'
+                    )
 
 args = parser.parse_args()
 rules = parse_config(args.path_config)
