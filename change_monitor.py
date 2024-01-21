@@ -53,7 +53,7 @@ parser = argparse.ArgumentParser(
                 'were assigned to the wrong monitor before, which is common when hot-plugging.',
     usage='Create a json config (see argument path_config.\n'
           'In your sway config, add a line like this, replacing path/to with the actual paths.: \n'
-          'exec-once = bash --noprofile path/to/monitors.sh path/to/config.json >> hyprhot.log'
+          'exec-once = path/to/monitors.sh path/to/config.json >> hyprhot.log'
 )
 
 parser.add_argument('path_config',

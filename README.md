@@ -87,5 +87,4 @@ Also, existing workspaces are re-assigned to the monitors they are intendet to b
    being the path to the repository
    ``` 
     exec-once = {path_to_repo}/monitors.sh {path_to_config}
-    exec = python {path_to_repo}/change_monitor.py {path_to_config}
    ```
