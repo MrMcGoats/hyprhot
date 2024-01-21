@@ -1,5 +1,5 @@
 [
-    {
+  {
     "description": "AU Optronics 0x623D",
     "workspaces": [
       "1",
@@ -29,17 +29,17 @@
     ],
     "workspace_default": "external_1"
   },
-    {
+  {
     "description": "Lenovo Group Limited T24i-30 VTQ05862",
     "workspaces": [
-            "external_1",
-            "external_2",
-            "external_3",
-            "external_4"
+      "external_1",
+      "external_2",
+      "external_3",
+      "external_4"
     ],
     "workspace_default": "external_1"
   },
-    {
+  {
     "description": "Samsung Electric Company SAMSUNG 0x00000001",
     "workspaces": [
       "external_5",
