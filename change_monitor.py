@@ -50,8 +50,12 @@ parser = argparse.ArgumentParser(
                 'Handle multiple monitors (e.g. on different physical locations like office and home) '
                 'being assigned to the same workspace. '
                 'Also ensure that workspaces are moved to their assigned monitor in case they'
-                'were assigned to the wrong monitor before, which is common when hot-plugging.'
+                'were assigned to the wrong monitor before, which is common when hot-plugging.',
+    usage='Create a json config (see argument path_config.\n'
+          'In your sway config, add a line like this, replacing path/to with the actual paths.: \n'
+          'exec-once = bash --noprofile path/to/monitors.sh path/to/config.json >> hyprhot.log'
 )
+
 parser.add_argument('path_config',
                     type=str,
                     help='Path to a .json config file. '
