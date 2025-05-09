@@ -14,6 +14,10 @@ class MonitorInfo:
     description: str
     workspaces: [str]
     workspace_default: str
+    resolution: str = None
+    position: str = None
+    scale: str = None
+    other_settings: str = None
 
 
 def get_monitors():
@@ -76,6 +80,22 @@ for monitor in monitors:
         # TODO: do comparison in more sophisticated way than with substring
         #   to avoid false-positives due to similar descriptions
         if rule.description in monitor['description']:
+            # Set monitor settings
+            resolution = "preferred"
+            position = "auto"
+            scale = "auto"
+            other_settings = ""
+            if rule.resolution:
+                resolution = rule.resolution
+            if rule.position:
+                position = rule.position
+            if rule.scale:
+                scale = rule.scale
+            if rule.other_settings:
+                other_settings = rule.other_settings
+
+            os.system(f'hyprctl keyword monitor desc:{monitor["description"]},{resolution},{position},{scale}{f",{other_settings}" if other_settings else ""}')
+
             # Apply workspace rules to assign the workspaces to the monitor
             for workspace in rule.workspaces:
                 workspace_rule = f'workspace name:{workspace},monitor:desc:{rule.description}{",default:true" if rule.workspace_default == workspace else ""}'
